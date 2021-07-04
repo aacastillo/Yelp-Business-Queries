@@ -15,7 +15,6 @@ type Restaurant = {
  }
 */
 
-//TODO: Save subset of Yelp dataset
 let YelpDatasetJSON = lib220.loadJSONFromURL('https://people.cs.umass.edu/~joydeepb/yelp.json'); 
 
 class Businesses {
@@ -23,36 +22,30 @@ class Businesses {
     this.businessesData = jsonDataset;
   }
 
-  //hasState(state: String): Businesses
-  hasState(state) {
-    return new Businesses(filterDataByState(state));
+  hasState(stateStr) {
+    return new Businesses(filterDataByState(stateStr));
   }
 
-  //HELPER: filterBusinessesByState(state: String): Business[]
-  filterDataByState(state) {
-    return this.businessesData.filter(business => isBusinessFromState(business, state));
-  }
-  //HELPER: isBusinessInState(business: Business, state: String): Boolean
-  isBusinessFromState(business, state) {
-    return (lib220.getProperty(business, "state").value === state);
+  filterDataByState(stateStr) {
+    return this.businessesData.filter(business => isBusinessFromState(business, stateStr));
   }
 
-  //ratingsLessOrEqualTo(requiredRating: number): Businesses
-  ratingsLessOrEqualTo(requiredRating) {
-    return new Businesses(filterDataByRating("less than or equal to", requiredRating));
+  isBusinessFromState(business, stateStr) {
+    return (lib220.getProperty(business, "state").value === stateStr);
   }
 
-  //ratingsGeq(requiredRating: number): Businesses
-  ratingsGreaterOrEqualTo(requiredRating) {
-    return new Businesses(filterDataByRating("greater than or equal to", requiredRating));
+  ratingsLessOrEqualTo(requiredRatingNum) {
+    return new Businesses(filterDataByRating("less than or equal to", requiredRatingNum));
   }
 
-  //HELPER: filterDataByRating(relationTo: String, requireRating: number): Business[]
-  filterDataByRating(relationTo, requiredRating) {
-    return this.businessesData.filter(business => checkRelationToRating(business, requiredRating));
+  ratingsGreaterOrEqualTo(requiredRatingNum) {
+    return new Businesses(filterDataByRating("greater than or equal to", requiredRatingNum));
+  }
 
-    //HELPER: checkRelationToRating(business: Business, requireRating: number): Boolean
-    function checkRelationToRating(business, requiredRating) {
+  filterDataByRating(relationToStr, requiredRatingNum) {
+    return this.businessesData.filter(business => checkRelationToRating(business, requiredRatingNum));
+
+    function checkRelationToRating(business, requiredRatingNum) {
       businessRating = lib220.getProperty(business, "stars").value;
       if (relationTo === "less than or equal to") {
         return (businessRating <= requiredRating);
@@ -62,38 +55,31 @@ class Businesses {
     }
   }  
 
-  //hasCategory(category: String): Businesses
-  hasCategory(category) {
-    return new Businesses(filterDataByCategory(category));
+  hasCategory(categoryStr) {
+    return new Businesses(filterDataByCategory(categoryStr));
   }
 
-  //HELPER: filterDataByCategory(category: String): Business[]
-  filterDataByCategory(category) {
+  filterDataByCategory(categoryStr) {
     return this.businessesData.filter(business => businessIncludesCategory(business, category));
 
-    //HELPER: businessIncludesCategory(business: Business, category: String): Boolean
-    function businessIncludesCategory(business, category){
+    function businessIncludesCategory(business, categoryStr){
       return lib220.getProperty(business, "categories").value.includes(category);
     }
   }
 
-  //hasAmbience(specificAmbience: string): Businesses
-  hasAmbience(specificAmbience) {
+  hasAmbience(specificAmbienceStr) {
     let hasAmbienceAttribute = this.businessesData.filter(business => businessHasAmbienceAttribute(business));
-    let hasSpecificAmbience = hasAmbienceAttribute.filter(business => businessHasSpecificAmbience(business, specificAmbience));
-    return new Businesses(hasSpecificAmbience.filter(business => specificAmbienceSetToTrue(business, specificAmbience)));
+    let hasSpecificAmbience = hasAmbienceAttribute.filter(business => businessHasSpecificAmbience(business, specificAmbienceStr));
+    return new Businesses(hasSpecificAmbience.filter(business => specificAmbienceSetToTrue(business, specificAmbienceStr)));
 
-    //HELPER:businessHasAmbienceAttribute(business: Business): Boolean
     function businessHasAmbienceAttribute(business){
       return lib220.getProperty(business.attributes, "Ambience").found;
     }
-    //HELPER: businessHasSpecificAmbience(business: Business, specificAmbience: String): Boolean
-    function businessHasSpecificAmbience(business, specificAmbience){
-      return lib220.getProperty(business.attributes.Ambience, ambience).found;
+    function businessHasSpecificAmbience(business, specificAmbienceStr){
+      return lib220.getProperty(business.attributes.Ambience, specificAmbienceStr).found;
     }
-    //HELPER:specificAmbienceSetToTrue(business: Business, specificAmbience: String): Boolean   
-    function specificAmbienceSetToTrue(business, specificAmbience){
-      return (lib220.getProperty(business.attributes.Ambience, ambience).value === true)
+    function specificAmbienceSetToTrue(business, specificAmbienceStr){
+      return (lib220.getProperty(business.attributes.Ambience, specificAmbienceStr).value === true)
     }
   }
 
