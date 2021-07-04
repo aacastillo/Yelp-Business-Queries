@@ -1,20 +1,3 @@
-
-/*
-type Restaurant = {
-  name: string,
-  city: string,
-  state: string,
-  stars: number,
-  review_count: number,
-  attributes: {} | {
-    Ambience: {
-      [key: string]: boolean
-    }
-  },
-  categories: string[]
- }
-*/
-
 let YelpDatasetJSON = lib220.loadJSONFromURL('https://people.cs.umass.edu/~joydeepb/yelp.json'); 
 
 class Businesses {
