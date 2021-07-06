@@ -33,7 +33,7 @@ If you have created the independant functions then you are almost ready to run t
 ```BASH
 $ cd ~\YelpBusinessQueries
 ```
-5. run Node.js on file
+6. run Node.js on file
 ```BASH
 $ node Yelp_JSON_DataWrangling.js 
 ```
