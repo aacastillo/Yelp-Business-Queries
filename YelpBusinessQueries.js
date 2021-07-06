@@ -10,7 +10,7 @@ class Businesses {
   #businessesWithCategory(categoryStr) {
     this.businessesData = filterDataByCategory(categoryStr);
     return this;
-  }d
+  }
   #filterDataByCategory(categoryStr) {
     return this.businessesData.filter(business => businessIncludesCategory(business, categoryStr));
   }
