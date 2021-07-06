@@ -26,9 +26,10 @@ If you have created the independant functions then you are almost ready to run t
 
 **STEPS**
 1. Since JavaScript is usually run on the browser download Node.JS to run program  in the terminal
-1. download the repository
-1. open the terminal
-1. change directory into the repo
+2. You can check whether you have node.JS by going to a bash terminal with, ```node -v```, which should return the version of node if it exists. You may have to reopen your terminal or IDE.
+3. download the repository
+4. open the terminal
+5. change directory into the repo
 ```BASH
 $ cd ~\YelpBusinessQueries
 ```
