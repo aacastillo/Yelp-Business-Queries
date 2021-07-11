@@ -34,9 +34,9 @@ If you have created the independant functions then you are almost ready to run t
 4. open the terminal
 5. change directory into the repo
 ```BASH
-$ cd ~\YelpBusinessQueries
+$ cd ~\Yelp_Business_Queries
 ```
 6. run Node.js on file
 ```BASH
-$ node Yelp_JSON_DataWrangling.js 
+$ node YelpBusinessQueries.js 
 ```
