@@ -7,7 +7,7 @@ The program has several functions that filter through a dataset of JSON Business
 The fluent design means that we can chain these functions to essentialy create different combinations of queries, like figuring out the best place to eat in California.
 ### **Architecture**:
 ![Architecture](https://lucid.app/publicSegments/view/3f32e049-8949-43e5-831e-c697c63a44a7/image.png)
-### **Dependancies**:
+### **Dependencies**:
 1. Ocelot credentials to import lib220 library
 1. UMass Amherst's lib220 package for loadJSONFromURL and getProperty functions
 1. JavaScript's Math.max, Array.filter, and Array.reduce 
