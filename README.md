@@ -17,6 +17,8 @@ The fluent design means that we can chain these functions to essentialy create d
 - More test coverage
 - Create independant loadJSONFromURL and getProperty functions
 - Create Docker Container that stores OS, dependancies, and Script.
+### **Implementation Details**:
+The Business class appears to be a mega class, handling several different types of methods. Originally I thought of refactoring this into several different classes that handle specific queries, however this would ruin the Fluent Design, since we would not be able to chain functions between different classes. This is why I stuck with the mega class instead of several smaller classes.
 # Installation and Testing:
 ### **Important note**:
 UMass Amherst does not provide access to the lib220 package and the only access to it is with Ocelot credentials, however the Ocelot IDE has a deprecated version of JS. 
