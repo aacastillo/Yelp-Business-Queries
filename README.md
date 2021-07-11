@@ -13,12 +13,12 @@ The fluent design means that we can chain these functions to essentialy create d
 1. JavaScript's Math.max, Array.filter, and Array.reduce 
 1. Node.JS version used: 14.17.3
 1. The JavaScript language has now supported new ways to privatize functions, methods, and fields using the hash symbol, ``#``. This may not be supported for all IDEs including Ocelot, and has other specifications. Check out the [Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields) for more details.
-### **TODO**:
+### **TO-DO**:
 - More test coverage
 - Create independant loadJSONFromURL and getProperty functions
 - Create Docker Container that stores OS, dependancies, and Script.
 ### **Implementation Details**:
-The Business class appears to be a mega class, handling several different types of methods. Originally I thought of refactoring this into several different classes that handle specific queries, however this would ruin the Fluent Design, since we would not be able to chain functions between different classes. This is why I stuck with the mega class instead of several smaller classes.
+The Business class appears to be a mega class, handling several different types of methods. Originally I thought of refactoring this into several different classes that handle specific queries, however this would ruin the Fluent Design, since we would not be able to chain functions between different classes. 
 # Installation and Testing:
 ### **Important note**:
 UMass Amherst does not provide access to the lib220 package and the only access to it is with Ocelot credentials, however the Ocelot IDE has a deprecated version of JS. 
