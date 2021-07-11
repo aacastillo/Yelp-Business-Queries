@@ -16,6 +16,7 @@ The fluent design means that we can chain these functions to essentialy create d
 ### **TODO**:
 - More test coverage
 - Create independant loadJSONFromURL and getProperty functions
+- Create Docker Container that stores OS, dependancies, and Script.
 # Installation and Testing:
 ### **Important note**:
 UMass Amherst does not provide access to the lib220 package and the only access to it is with Ocelot credentials, however the Ocelot IDE has a deprecated version of JS. 
